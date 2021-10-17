@@ -13,7 +13,6 @@
 #
 # Configure Using Gemfile
 # gem 'pg'
-#
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -22,7 +21,6 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: meet
   password: MKS4344!
-  e
 
 development:
   <<: *default

@@ -3,6 +3,8 @@ class CreateAppointments < ActiveRecord::Migration[6.1]
     create_table :appointments do |t|
       t.date :appointment_date
       t.time :appointment_time
+      t.boolean :completed
+      t.bigint :doctors_id
       t.belongs_to :user, null: false, foreign_key: true
 
       t.timestamps

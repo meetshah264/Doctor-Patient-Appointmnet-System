@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2021_10_05_211455) do
   create_table "appointments", force: :cascade do |t|
     t.date "appointment_date"
     t.time "appointment_time"
+    t.boolean "completed"
+    t.bigint "doctors_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

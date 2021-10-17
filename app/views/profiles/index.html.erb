@@ -35,6 +35,10 @@
 </table>
 
 <br>
-<% if can? :create, @appointment %>
+<% if can? :create, Appointment %>
 <%= link_to 'New Appointment', new_appointment_path %>
+<% end %>
+
+<% if current_user&.admin? %>
+<%= link_to 'Invite new dotor', new_user_invitation_path %>
 <% end %>
