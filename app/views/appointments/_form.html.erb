@@ -15,6 +15,10 @@
     <%= f.date_select :appointment_date %>
   </div>
   <div class="field">
+    <%= f.label :completed %><br>
+    <%= f.check_box :completed %>
+  </div>
+  <div class="field">
     <%= f.label :appointment_time %><br>
     <%= f.time_select :appointment_time %>
   </div>

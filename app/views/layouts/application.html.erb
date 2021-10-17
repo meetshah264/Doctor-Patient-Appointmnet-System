@@ -18,9 +18,9 @@
       <% if user_signed_in? %>
         Signed in as <%= current_user.email %>.<br>
         Not you?
-          <% if current_user&.doctor? %>
-            <%= link_to "Edit profile", edit_profile_path(current_user) %>
-          <% elsif current_user&.patient? %>
+          <% if current_user.profile.present? %>
+            <%= link_to "Edit profile", edit_profile_path(current_user.profile) %>
+          <% elsif %>
             <%= link_to "Edit profile", edit_profile_path(current_user) %>
           <% else %>
             <%= link_to "Invite Doctors", new_user_invitation_path %> |

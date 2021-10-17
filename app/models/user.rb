@@ -12,6 +12,8 @@ class User < ApplicationRecord
   belongs_to :doctors, class_name: "User", optional: true
   before_create :assign_role
 
+  scope :with_doctor, -> { where("users.role_id = 2") }
+
   def assign_role
     self.role = Role.find_by name: 'Patient' if role.nil?
   end
