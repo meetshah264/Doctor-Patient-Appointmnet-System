@@ -27,6 +27,7 @@ class AppointmentsController < ApplicationController
 
     respond_to do |format|
       if @appointment.save
+        AppointmentMailer.with(user: current_user).appointment_confirmation_email.deliver_now
         format.html { redirect_to @appointment, notice: "Appointment was successfully created." }
         format.json { render :show, status: :created, location: @appointment }
       else
@@ -66,6 +67,6 @@ class AppointmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def appointment_params
-      params.require(:appointment).permit(:user_id, :appointment_date, :appointment_time)
+      params.require(:appointment).permit(:user_id, :completed, :appointment_date, :appointment_time, :doctors_id)
     end
 end
